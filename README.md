@@ -18,10 +18,3 @@ https://github.com/MatheusVibrio/api_etanois
 Porém, o link do figma está a seguir:
 https://www.figma.com/design/pINJ1dcDkQmsFuipIjudoP/Etanois?node-id=6-377&t=GbGgScpOoW5QPDej-1
 
-
-
-
-
-
-## Foto
-
