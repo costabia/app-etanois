@@ -64,9 +64,9 @@ export default function TelaHome() {
       1: "blue",
       2: "green",
       3: "red",
-      4: "yellow",
+      4: "#ffd700",
     };
-
+    
     return {
       backgroundColor:
         selectedFuel === id_combustivel
@@ -77,8 +77,14 @@ export default function TelaHome() {
   };
 
   const getFuelTextStyle = (id_combustivel: number) => {
+    const colors: Record<number, string> = {
+      1: "blue",
+      2: "green",
+      3: "red",
+      4: "#ffd700",
+    };
     return {
-      color: selectedFuel === id_combustivel ? "white" : "black",
+      color: selectedFuel === id_combustivel ? "white" : colors[id_combustivel],
     };
   };
 
@@ -184,6 +190,7 @@ export default function TelaHome() {
           keyExtractor={(item) =>
             item.id_posto ? item.id_posto.toString() : Math.random().toString()
           }
+          ListEmptyComponent={<Text>Sem postos cadastrados até o momento.</Text>}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => handleItemPress(item)}
