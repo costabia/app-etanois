@@ -10,6 +10,10 @@ O tema deste projeto é o desenvolvimento de um aplicativo móvel focado na cons
 
 **Back-end:** Node, Express 
 
+## Para rodar
+npm i
+npm start
+
 O projeto já está com a integração Back-End, ou seja, não funcionará de forma completa sem a execução da API.
 
 Segue abaixo o link da API: 
