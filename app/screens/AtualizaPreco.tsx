@@ -14,6 +14,7 @@ import {
   Poppins_400Regular,
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
+import Toast from "react-native-toast-message";
 
 export default function AtualizaPreco() {
   const route = useRoute<any>();
@@ -95,7 +96,7 @@ export default function AtualizaPreco() {
         fk_id_combustivel: 3,
       });
     }
-
+    
     if (precosAtualizados.length === 0) {
       console.log("Nenhuma alteração de preço detectada.");
       return;
@@ -111,8 +112,19 @@ export default function AtualizaPreco() {
         });
       }
 
+      Toast.show({
+        type: 'success',
+        text1: 'Preço atualizado com sucesso!',
+      });
+
       fetchTrazPostos(idPosto);
     } catch (error) {
+
+      Toast.show({
+        type: 'error',
+        text1: 'Erro ao atualizar os preços.',
+      });
+
       console.error("Erro ao atualizar os preços:", error);
     }
   };
@@ -235,7 +247,7 @@ export default function AtualizaPreco() {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Nossos Planos</Text>
-
+            <Text style={[styles.modalTitle, {fontSize: 10, marginBottom: 15}]}>Escolha a opção que mais encaixa com você e contate-nos.</Text>
             <View
               style={{
                 display: "flex",
@@ -248,9 +260,9 @@ export default function AtualizaPreco() {
                 marginBottom: 10,
               }}
             >
-              <View style={{ marginRight: 10 }}>
+              <View style={{ width: 70, marginRight: 20 }}>
                 <Text style={styles.planTitle}>Grátis</Text>
-                <Text style={styles.modalText}>R$ 0.00</Text>
+                <Text style={[styles.modalText, {color: 'red'}]}>R$ 0.00</Text>
               </View>
               <Text style={styles.modalText}>
                 É apresentado junto com os demais postos sem uma posição
@@ -269,9 +281,9 @@ export default function AtualizaPreco() {
                 padding: 18,
               }}
             >
-              <View style={{ marginRight: 10 }}>
+              <View style={{ width: 70, marginRight: 20 }}>
                 <Text style={styles.planTitle}>Premium</Text>
-                <Text style={styles.modalText}>R$ 30.00</Text>
+                <Text style={[styles.modalText, {color: 'red'}]}>R$ 30.00</Text>
               </View>
               <Text style={styles.modalText}>
                 Acesso a todos os recursos da aplicação, com suporte básico.
@@ -423,18 +435,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     fontFamily: "Poppins_600SemiBold",
-    marginBottom: 10,
   },
   modalText: {
     fontSize: 10,
-    marginBottom: 20,
     fontFamily: "Poppins_400Regular",
   },
   planTitle: {
     fontSize: 15,
     fontWeight: "bold",
-    fontFamily: "Poppins_600SemiBold",
-    marginBottom: 5,
+    fontFamily: "Poppins_600SemiBold"
   },
   modalButton: {
     backgroundColor: "#D02220",

@@ -10,6 +10,7 @@ import {
   Poppins_400Regular,
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
+import Toast from "react-native-toast-message";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ export default function App() {
   }
 
   return (
+    <>
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Home"
@@ -55,6 +57,8 @@ export default function App() {
         <Stack.Screen name="AtualizaPreco" component={AtualizaPreco} />
       </Stack.Navigator>
     </NavigationContainer>
+     <Toast />
+     </>
   );
 }
 
